@@ -37,18 +37,67 @@ The kitchen scheduler compares three strategies, including a **simulated anneali
 
 ## 🚀 Getting Started
 
-### Build
-```bash
-g++ -std=c++17 -O2 -o restaurant restaurant_optimizer.cpp
+### Prerequisites
+A C++17 compiler (`g++` or `clang++`). Check with `g++ --version`.
+
+| OS | Install the compiler |
+|---|---|
+| **Windows** | Install [MinGW-w64 / MSYS2](https://www.msys2.org/) and add its `bin` folder to PATH |
+| **macOS** | `xcode-select --install` |
+| **Linux (Debian/Ubuntu)** | `sudo apt install g++` |
+
+Open a terminal (or the VS Code terminal with `` Ctrl + ` ``) in the folder containing `restaurant_optimizer.cpp`.
+
+### 🪟 Windows
+
+**PowerShell**
+```powershell
+g++ -std=c++17 -O2 restaurant_optimizer.cpp -o restaurant
+.\restaurant              # interactive menu
+.\restaurant --demo       # scripted end-to-end demo
+.\restaurant --bench 50   # benchmark on 50 random dinner rushes
+.\restaurant --test       # run self-tests
 ```
 
-### Run
-```bash
-./restaurant            # interactive menu
-./restaurant --demo     # scripted end-to-end demo
-./restaurant --bench 50 # benchmark on 50 random dinner rushes
-./restaurant --test     # run self-tests
+**Command Prompt (CMD)**
+```bat
+g++ -std=c++17 -O2 restaurant_optimizer.cpp -o restaurant
+restaurant
+restaurant --demo
+restaurant --bench 50
+restaurant --test
 ```
+
+### 🍎 macOS
+
+```bash
+g++ -std=c++17 -O2 restaurant_optimizer.cpp -o restaurant
+./restaurant              # interactive menu
+./restaurant --demo       # scripted end-to-end demo
+./restaurant --bench 50   # benchmark on 50 random dinner rushes
+./restaurant --test       # run self-tests
+```
+(On macOS `g++` is an alias for Apple Clang, which works fine. You can also use `clang++`.)
+
+### 🐧 Linux
+
+```bash
+g++ -std=c++17 -O2 restaurant_optimizer.cpp -o restaurant
+./restaurant              # interactive menu
+./restaurant --demo       # scripted end-to-end demo
+./restaurant --bench 50   # benchmark on 50 random dinner rushes
+./restaurant --test       # run self-tests
+```
+
+### ⚡ One-line compile and run
+
+| OS / Shell | Command |
+|---|---|
+| Windows PowerShell | `g++ -std=c++17 restaurant_optimizer.cpp -o restaurant; .\restaurant --demo` |
+| Windows CMD | `g++ -std=c++17 restaurant_optimizer.cpp -o restaurant && restaurant --demo` |
+| macOS / Linux | `g++ -std=c++17 restaurant_optimizer.cpp -o restaurant && ./restaurant --demo` |
+
+> **Troubleshooting:** if you see `'g++' is not recognized` (Windows) or `command not found` (macOS/Linux), the compiler isn't installed or isn't on your PATH. Times are always entered in 24-hour `HH:MM` format, e.g. `19:30`.
 
 ### Interactive menu
 ```
@@ -123,11 +172,11 @@ Simulated annealing starts from the greedy schedule and explores swaps and moves
 
 ```
 .
-├── main.cpp   # entire application (Floor, Kitchen, benchmark, tests, CLI)
+├── restaurant_optimizer.cpp   # entire application (Floor, Kitchen, benchmark, tests, CLI)
 └── README.md
 ```
 
-State is saved to `main.txt` in the working directory.
+State is saved to `restaurant_state.txt` in the working directory.
 
 ---
 
@@ -140,7 +189,7 @@ State is saved to `main.txt` in the working directory.
 
 ---
 
-## 👥 Authors
+## 👥 Author
 
 - **Saumya Koranga**
 
